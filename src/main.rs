@@ -1,13 +1,26 @@
 fn main() {
-    let mut counter = 0;
+    let mut count = 0;
+    // This is what we called label loop
+    // Use this label loop when you want to `break` or `continue` in nested loop
+    'counting_up: loop {
+        println!("count, {count}");
 
-    let result = loop {
-        counter += 1;
+        let mut remaining = 10;
 
-        if counter == 10 {
-            break counter * 2;
+        loop {
+            println!("remaining: {remaining}");
+
+            if remaining == 9 {
+                break;
+            } else if count == 2 {
+                break 'counting_up;
+            }
+
+            remaining -= 1;
         }
+
+        count += 1;
     };
 
-    println!("The result is: {result}");
+    println!("End count = {count}");
 }
