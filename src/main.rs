@@ -1,26 +1,18 @@
 fn main() {
-    let mut count = 0;
-    // This is what we called label loop
-    // Use this label loop when you want to `break` or `continue` in nested loop
-    'counting_up: loop {
-        println!("count, {count}");
+    // let a = [10, 20, 30, 40, 50, 60];
 
-        let mut remaining = 10;
+    // let mut index = 0;
 
-        loop {
-            println!("remaining: {remaining}");
+    // while index < 5 {
+    //     println!("The value is: {}", a[index]);
 
-            if remaining == 9 {
-                break;
-            } else if count == 2 {
-                break 'counting_up;
-            }
+    //     index += 1;
+    // }
 
-            remaining -= 1;
-        }
+    // Another way to use for loop
+    let a = [10, 20, 30, 40, 50, 60];
 
-        count += 1;
-    };
-
-    println!("End count = {count}");
+    for element in a {
+        println!("The value is: {element}");
+    }
 }
