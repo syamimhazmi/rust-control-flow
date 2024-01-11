@@ -1,11 +1,12 @@
 fn main() {
-    let mut number = 3;
+    // This code will be slow since compiler add runtime to check the index value.
+    let a = [10, 20, 30, 40, 50];
 
-    while number != 0 {
-        println!("{number}");
+    let mut index = 0;
 
-        number -= 1;
+    while index < 5 {
+        println!("the value is: {}", a[index]);
+
+        index += 1;
     }
-
-    println!("ListOFF!");
 }
