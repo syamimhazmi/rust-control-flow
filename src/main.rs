@@ -1,20 +1,31 @@
 fn main() {
-    // let number = 3;
-    let number = 7;
+    let mut base_of_fib = String::new();
 
-    // if number < 5 {
-    //     println!("condition was true");
-    // } else {
-    //     println!("condition was false");
-    // }
+    println!("Please input the base of fibonacci value");
 
-    // Condition must be a bool
-    // This code will not run, since we dont provide a comparison value
-    // if number {
-    //     println!("The number is seven");
-    // }
+    std::io::stdin()
+        .read_line(&mut base_of_fib)
+        .expect("Failed to read number of fibonacci");
 
-    if number != 0 {
-        println!("number was something other than zero");
+    let base_of_fib: i32 = base_of_fib.trim()
+        .parse()
+        .expect("Failed to parsed string format");
+
+    let result = fib(base_of_fib);
+
+    println!("The result of fibonacci is: {}", result)
+}
+
+fn fib(number: i32) -> i32 {
+    if number <= 0 {
+        return 0;
     }
+
+    if number == 1 {
+        return 1;
+    }
+
+    // 0,1,1,2,3,5,8,13,21...
+
+    return fib(number - 1) + fib(number - 2);
 }
